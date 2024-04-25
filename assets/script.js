@@ -95,12 +95,10 @@ const slides = [
 
 // Si je clique sur une des flèches je peux naviguer sur l'intervalle définit plus haut (-1,+1)
   function checkPosition() {
-	// Si la position devient supérieure au nombre d'élément de slides alors position = 0 pour boucler le diaporama
     if (position >= slides.length) {
-      position = 0;
-	// Si la position devient négative alors position = au nombre d'élément de slides - 1 pour boucler le diaporama
+      position = 0;   // Si la position est plus grande que le nombre de slides je serais équivalent à (0) c-àd que je boucle le défilement
     } else if (position < 0) {
-      position = slides.length - 1;
+      position = slides.length - 1; // Si la position est inférieure que le nombre de slides je serais équivalent à (-1) c-àd que je boucle le défilement
     }
   }
 
