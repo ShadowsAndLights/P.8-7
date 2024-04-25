@@ -2,4 +2,12 @@ Premier étape : Modification du fichier HTML et ajout des images des flèches pou
 
 Seconde étape:  Rendre les flèches intéractives par l'application de 'event listener" et de la console.log pour tester
 Ajout également de l'instruction const pour ne pas changer l'image de la bannière et le texte mais également, les flèches et le bloc contenant les points.
- 
+
+Troisième étape: Ajout des points trait plein dans  la bannière
+4 slide pour script en js et associer image aux points 
+
+Quatrième étape: il faut que l'image de la bannière change quand on clique sur le bouton (point creux)
+Doit-être possible de faire la même la chose avec quand on clique sur l'une des deux flèches.
+
+Cinquième étape: Créer une boucle infini afin de pouvoir passer de la dernière à la première image en cliquant sur les flèches
+Application d'une condition pour que tout soit corrélé points, textes et images.

@@ -28,11 +28,88 @@ const slides = [
   let dots = [];
 
 
-
-// Pour éviter d'avoir trois blocs de point j'utilise cette fonction pour les créer (<div class="dots"></div>)
+      // Création des blocs div 'dots"'
+// Pour éviter d'avoir trois blocs de point dans HTML j'utilise cette fonction pour les créer (<div class="dots"></div>)
   slides.forEach(function()  {
     const dot = document.createElement("div");
-    dot.classList.add("dot");
     dotsContainer.appendChild(dot);
+    dot.classList.add("dot"); //auront la classe .dot   
     dots.push(dot);
   });
+
+
+
+     // Eventlistener
+// Ajout des événements d'écoute pour flèche gauche et ajout de console.log pour tester eventlistener
+  arrowLeft.addEventListener("click", function() {
+    ArrowClic(-1);
+    console.log("Clic sur le bouton de gauche");
+    console.log(position);
+  });  
+
+// Ajout des événements d'écoute pour flèche droite et ajout de console.log pour tester eventlistener
+  arrowRight.addEventListener("click", function() {
+    ArrowClic(1);
+    console.log("Clic sur le bouton de droite");
+    console.log(position);
+  });
+
+// Quand on clique sur un des 4 points on a changement de points
+  dots.forEach(function(dot, index) {
+    dot.addEventListener("click", function() {
+      position = index;
+      updateDots();
+      changeSlide();
+    });
+  });
+
+
+
+
+    // Points pleins ajoutés et liaison à chaque image
+// Dès qu'on clique sur un point celui-ci est plein précisant qu'il est sélectionné
+    function updateDots() {
+    dots.forEach(function(dot, index) {//fonction pour indexer automatiqement et répeter les points sélectionnés
+      dot.classList.remove("dot_selected");
+      if (index === position) {
+        dot.classList.add("dot_selected");
+      }
+    });
+  }
+
+// Fonction pour changer l'image et le texte
+  function changeSlide() {
+    bannerImg.src = "./assets/images/slideshow/" + slides[position].image;
+    bannerText.innerHTML = slides[position].tagLine;
+  }
+
+
+    // Ajout des fonctions pour pouvoir naviguer en cliquant sur les flèches
+// Définition de la direction des flèches quand on clique dessus
+  function ArrowClic(direction) {
+    position += direction;
+    checkPosition();
+    updateDots();
+    changeSlide();
+  }
+
+// Si je clique sur une des flèches je peux naviguer sur l'intervalle définit plus haut (-1,+1)
+  function checkPosition() {
+	// Si la position devient supérieure au nombre d'élément de slides alors position = 0 pour boucler le diaporama
+    if (position >= slides.length) {
+      position = 0;
+	// Si la position devient négative alors position = au nombre d'élément de slides - 1 pour boucler le diaporama
+    } else if (position < 0) {
+      position = slides.length - 1;
+    }
+  }
+
+
+
+  
+
+
+
+
+
+
