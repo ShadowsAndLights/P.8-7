@@ -15,4 +15,14 @@ const slides = [
 		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
-]
+];
+
+
+// Ajout de l'instruction const pour na pas changer les elts de la bannière et let pour faire évoluer les valeurs
+  const bannerImg = document.querySelector(".banner-img");
+  const bannerText = document.querySelector("#banner p");
+  const dotsContainer = document.querySelector(".dots");
+  const arrowRight = document.querySelector(".arrow_right");
+  const arrowLeft = document.querySelector(".arrow_left");
+  let position = 0;
+  let dots = [];

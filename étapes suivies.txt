@@ -1,3 +1,5 @@
 Premier étape : Modification du fichier HTML et ajout des images des flèches pour pouvoir naviguer dans le carrousel.
 
-Seconde étape:  
+Seconde étape:  Rendre les flèches intéractives par l'application de 'event listener" et de la console.log pour tester
+Ajout également de l'instruction const pour ne pas changer l'image de la bannière et le texte mais également, les flèches et le bloc contenant les points.
+ 
