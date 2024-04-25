@@ -19,10 +19,20 @@ const slides = [
 
 
 // Ajout de l'instruction const pour na pas changer les elts de la bannière et let pour faire évoluer les valeurs
-  const bannerImg = document.querySelector(".banner-img");
+  const bannerImg = document.querySelector(".banner-img");//queryselector va de l'interface Document retourne le premier Element dans le document correspondant au sélecteur/groupe de sélecteurs que j'auarais précisé
   const bannerText = document.querySelector("#banner p");
   const dotsContainer = document.querySelector(".dots");
   const arrowRight = document.querySelector(".arrow_right");
   const arrowLeft = document.querySelector(".arrow_left");
   let position = 0;
   let dots = [];
+
+
+
+// Pour éviter d'avoir trois blocs de point j'utilise cette fonction pour les créer (<div class="dots"></div>)
+  slides.forEach(function()  {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  });
