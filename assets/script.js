@@ -19,24 +19,25 @@ const slides = [
 
 
 // Ajout de l'instruction const pour na pas changer les elts de la bannière et let pour faire évoluer les valeurs
-  const bannerImg = document.querySelector(".banner-img");//queryselector va de l'interface Document retourne le premier Element dans le document correspondant au sélecteur/groupe de sélecteurs que j'auarais précisé
+  const bannerImg = document.querySelector(".banner-img");//queryselector va de l'interface Document retourne le premier Element dans le document correspondant au sélecteur/groupe de sélecteurs que j'aurais précisé
   const bannerText = document.querySelector("#banner p");
   const dotsContainer = document.querySelector(".dots");
   const arrowRight = document.querySelector(".arrow_right");
   const arrowLeft = document.querySelector(".arrow_left");
-  let position = 0;
+  let position = 0; //Déclaration de la variable
   let dots = [];
 
 
       // Création des blocs div 'dots"'
 // Pour éviter d'avoir trois blocs de point dans HTML j'utilise cette fonction pour les créer (<div class="dots"></div>)
-  slides.forEach(function()  {
-    const dot = document.createElement("div");
-    dotsContainer.appendChild(dot);
-    dot.classList.add("dot"); //auront la classe .dot   
-    dots.push(dot);
-  });
+    slides.forEach(function() {
 
+    let dot = document.createElement("div");
+      
+    dotsContainer.appendChild(dot);
+    dot.classList.add("dot"); //Ajout de la classe spécifiée. 
+    dots.push(dot);
+    });
 
 
      // Eventlistener
@@ -88,17 +89,17 @@ const slides = [
 // Définition de la direction des flèches quand on clique dessus
   function ArrowClic(direction) {
     position += direction;
-    checkPosition();
+    updatePosition();
     updateDots();
     changeSlide();
   }
 
 // Si je clique sur une des flèches je peux naviguer sur l'intervalle définit plus haut (-1,+1)
-  function checkPosition() {
-    if (position >= slides.length) {
-      position = 0;   // Si la position est plus grande que le nombre de slides je serais équivalent à (0) c-àd que je boucle le défilement
+  function updatePosition() {
+    if (position >= slides.length) { //Si la position est plus grande ou inférieur que le nombre de slides je serais équivalent à (0) ou à (-1) c-à-d que je boucle le défilement
+      position = 0;    
     } else if (position < 0) {
-      position = slides.length - 1; // Si la position est inférieure que le nombre de slides je serais équivalent à (-1) c-àd que je boucle le défilement
+      position = slides.length - 1;
     }
   }
 
