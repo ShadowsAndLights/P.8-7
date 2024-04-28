@@ -21,7 +21,7 @@ const slides = [
 // Ajout de l'instruction const pour na pas changer les elts de la bannière et let pour faire évoluer les valeurs
   const bannerImg = document.querySelector(".banner-img");//queryselector va de l'interface Document retourne le premier Element dans le document correspondant au sélecteur/groupe de sélecteurs que j'aurais précisé
   const bannerText = document.querySelector("#banner p");
-  const dotsContainer = document.querySelector(".dots");
+  const dotsBox = document.querySelector(".dots");
   const arrowRight = document.querySelector(".arrow_right");
   const arrowLeft = document.querySelector(".arrow_left");
   let position = 0; //Déclaration de la variable
@@ -34,7 +34,7 @@ const slides = [
 
     let dot = document.createElement("div");
       
-    dotsContainer.appendChild(dot);
+    dotsBox.appendChild(dot);
     dot.classList.add("dot"); //Ajout de la classe spécifiée. 
     dots.push(dot);
     });
